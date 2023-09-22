@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webapi.Models;
@@ -60,6 +61,56 @@ namespace webapi.Controllers
             }
 
             _context.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // PATCH: api/User/5
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchUser(int id, [FromBody] JsonPatchDocument<User> patchDocument)
+        {
+            if (patchDocument == null)
+            {
+                return BadRequest();
+            }
+
+            var userToUpdate = await _context.Users.FindAsync(id);
+
+            if (userToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                patchDocument.ApplyTo(userToUpdate);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("PatchError", ex.Message);
+                return BadRequest(ModelState);
+            }
+
+            if (!TryValidateModel(userToUpdate))
+            {
+                return BadRequest(ModelState); // Retourne les erreurs de validation
+            }
 
             try
             {

@@ -252,3 +252,10 @@ C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\ru\Microsoft.C
 C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Scrutor.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\miaou\OneDrive\DEV\VoiceRecorder\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

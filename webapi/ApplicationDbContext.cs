@@ -8,6 +8,6 @@ namespace webapi
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Memo> memos { get; set; }
+        public DbSet<Memo> Memos { get; set; }
     }
 }

@@ -7,17 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddSwaggerGenNewtonsoftSupport();
 
-string? connectionString = Environment.GetEnvironmentVariable("ASPNETCORE_VoiceRecorder_DefaultConnectionString");
 
-if (connectionString != null)
-{
-    // add the db context to the builder
-    _ = builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString(connectionString)
-    ));
-}
+string? connectionString = Environment.GetEnvironmentVariable("VOICE_RECORDER_DATABASE_CONNECTION_STRING") ?? "default_connection_string";
+
+_ = builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
